@@ -1,0 +1,70 @@
+* {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-image: url(../image/thumbnail.jpg);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  margin: 0 50px;
+}
+.layout {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 125px;
+}
+.logo {
+  display: flex;
+  justify-content: start;
+}
+.imgLogo {
+  height: 125px;
+  width: 190px;
+}
+.controlCenter {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.btnCtrl {
+  width: 250px;
+  height: 40px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.icon {
+  display: flex;
+  justify-content: end;
+}
+.btnIcon {
+  margin: 5px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.section {
+  display: flex;
+  width: 100%;
+}
+.blog {
+  padding-left: 5px;
+}
+.rightBlog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnBlog {
+  width: 50%;
+  height: 60px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: large;
+}
