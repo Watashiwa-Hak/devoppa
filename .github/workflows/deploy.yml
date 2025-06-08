@@ -1,0 +1,20 @@
+name: Build and Run Docker Compose
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout source
+        uses: actions/checkout@v3
+
+      - name: 🐳 Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: 🧱 Build and run with Docker Compose
+        run: |
+          docker-compose -f docker-compose.yml up -d --build
