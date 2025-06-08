@@ -7,17 +7,52 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: 📥 Checkout source
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+
+      - uses: docker/setup-buildx-action@v3
 
       - name: Install Docker Compose
         run: sudo apt-get update && sudo apt-get install -y docker-compose
 
-      - name: 🐳 Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+      - name: Build and run containers
+        run: docker-compose up -d --build
 
-      - name: 🧱 Build and run with Docker Compose
-        run: |
-          docker-compose -f docker-compose.yml up -d --build
+      - name: Wait for app to start
+        run: sleep 10
+
+      - name: Check running containers
+        run: docker ps
+
+      - name: Run basic test (replace with your test command)
+        name: Build and Run Docker Compose
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: docker/setup-buildx-action@v3
+
+      - name: Install Docker Compose
+        run: sudo apt-get update && sudo apt-get install -y docker-compose
+
+      - name: Build and run containers
+        run: docker-compose up -d --build
+
+      - name: Wait for app to start
+        run: sleep 10
+
+      - name: Check running containers
+        run: docker ps
+
+      - name: Run basic test (replace with your test command)
+        run: curl -f http://localhost:YOUR_APP_PORT || exit 1
+
+      - name: Clean up
+        run: docker-compose down
