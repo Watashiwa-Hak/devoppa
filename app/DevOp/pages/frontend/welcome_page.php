@@ -41,7 +41,7 @@
 
         <div class="blog mt-5">
             <h1 class="mx-5 my-3" style="font-size: 50px">
-                Visual Game
+                Visual Interactive game
             </h1>
             <h2 class="mx-5 text-success">
                 Track every move, power-up, and play —<br>
